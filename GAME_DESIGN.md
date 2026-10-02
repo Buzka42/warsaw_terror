@@ -12,7 +12,7 @@ Zakon poluje w 4-osobowej grupie. Za każdego wyeliminowanego zmiennokształtneg
 
 ## Core loop
 
-Żerowanie na tych samych stacjach/liniach wyczerpuje teren (brak ofiar) i zostawia ślady. Zakon trianguluje gniazdo na podstawie miejsc polowań — tak jak probe scanner / d-scan w EVE (screen referencyjny w wątku): zawężanie sygnału z szerokiego obszaru do punktu. Jeśli łowca i zmiennokształtny znajdą się w tym samym pojeździe, łowca może wywołać walkę.
+Żerowanie na tych samych stacjach/liniach wyczerpuje teren (brak ofiar) i zostawia ślady. Zakon trianguluje gniazdo na podstawie miejsc polowań: zawężanie od szerokiego obszaru do punktu. Jeśli łowca i zmiennokształtny znajdą się w tym samym pojeździe, łowca może wywołać walkę.
 
 ## Moce (roboczo)
 
@@ -49,8 +49,8 @@ Kolejka komunikatów tłumaczących ekran (event log + toasty). Pytania: kto pis
 ### 5. Win condition
 "Przeżyj 7 dni" brzmi prosto, ale co z AFK-camperem? Gniazdo bez żeru powinno więdnąć i świecić (sygnał dla zakonu). Zakon bez akcji powinien tracić fundusze / morale. Inaczej optymalna strategia to nie grać.
 
-### 6. Triangulacja jako UI (inspiracja EVE)
-Screen z EVE pokazuje kierunek: suwaki dystansu/kąta, siła sygnału, zawężanie. Do przeniesienia: 3 poziomy precyzji (linia → rejon przystanków → konkretne gniazdo), fałszywe echa, koszt skanu (czas/energia/pieniądze). Ile skanów na minutę, żeby nie było spamu.
+### 6. Triangulacja jako UI
+Trzy poziomy precyzji (linia → rejon przystanków → konkretne gniazdo), fałszywe echa, koszt skanu (czas/energia/pieniądze). Ile skanów na minutę, żeby nie było spamu.
 
 ### 7. Ruch: samochód vs komunikacja
 Zakon autem: klik → dojazd po czasie, zero poszlak. Komunikacją: wolniej, ale zbiera poszlaki + może spotkać cel. Do ustalenia liczby: czas dojazdu autem vs czas przejazdu ZTM na tym samym odcinku — auto musi być wyraźnie szybsze, inaczej nikt go nie użyje, a ma być wyborem taktycznym. Zmiennokształtny: czy też może autem, czy tylko ZTM?
