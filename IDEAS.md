@@ -45,6 +45,19 @@ Przeciw:
 - Ryzyko "kolejny CRUD": bez 1–2 mocnych mechanik (np. dopasowanie ekipy, smart powiadomienia) wygląda generycznie.
 - Konkurencja na sali prawdopodobnie robi podobne rzeczy.
 
-## Pomysł 3: (czeka na opis)
+## Pomysł 3: Park-and-ride decydent (asystent dojazdu)
 
-Miejsce na pomysł partnera / trzeci pomysł Patryka. Dopisz: 5 zdań opisu + jakie dane miasta używa + jak wygląda demo w 5 minut. Ocena zimno po spłynięciu, tymi samymi kryteriami co wyżej.
+Mega prosta apka: wpisujesz adres docelowy, zaznaczasz "siedzę już w samochodzie" / "wychodzę za 5–30 min". Model decyzyjny (typu Jev) liczy w czasie rzeczywistym: jechać autem bezpośrednio, czy korki i lepiej podjechać do ZTM i ominąć je komunikacją. Po drodze sprawdza wolne miejsca parkingowe (Parkuj i Jedź / miejskie), rozkłady i pozycje ZTM, ruch drogowy i utrudnienia (remonty etc). Dane: lokalizacje i rozkłady komunikacji, parkingi, ruch, utrudnienia — wszystko ze zbiorów UM.
+
+Za:
+- Najsilniejszy fit z miastem: korki, parkingi i multimodalność to ich własne KPI.
+- Demo idealne: 2 adresy, 2 czasy wyjścia, 2 różne decyzje na ekranie. Jury rozumie w 60 sekund.
+- Prostota = niezawodność na sali: jeden ekran, jeden wynik, zero tłumaczenia.
+- Dane miasta jako silnik decyzji, nie tło — najczystsze spełnienie wymogu.
+- Łatwe do rozbudowy po hackathonie (powiadomienia, ulubione trasy).
+
+Przeciw:
+- Największa zależność od jakości i świeżości wielu zbiorów naraz (parkingi live, ruch, remonty, ZTM). Jeden martwy feed = głupie decyzje.
+- Ryzyko "Google Maps to umie": trzeba wyraźnie pokazać różnicę (multimodal auto+ZTM + parkingi miejskie w jednej decyzji, lokalnie dla Warszawy).
+- Model decyzyjny musi być kalibrowany prawdziwymi czasami — bez strojenia na danych z dnia demo łatwo o żenujący wynik na żywo (seed + fallback obowiązkowe).
+- Mało "społeczne" — słabsza historia niż eventy, jeśli jury ceni wspólnotowość.
