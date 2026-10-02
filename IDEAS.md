@@ -2,12 +2,14 @@
 
 Hackathon: Warsaw Open Data, 42 Warsaw, 17–18.10, 24h, 18k PLN, zespół 3 + agenci AI. Wymóg: min. 1 zbiór z dane.um.warszawa.pl. Jury: miasto, ministerstwo cyfryzacji, biznes.
 
-Kryteria oceny (wspólne, rozstrzygniemy po spłynięciu wszystkich propozycji):
-- Fit z jury miejskim (użyteczność dla mieszkańca)
-- Siła wykorzystania otwartych danych (nie fasada)
-- Demo w 5 minut (jury klika samo)
-- Realny scope na 24h (z gotowym .md i agentami)
-- Potencjał po hackathonie (czy żyje dalej)
+Kryteria oceny wg regulaminu (§5A ust. 12, skala 1-5, średnia ważona):
+- wykorzystanie i związek z otwartymi danymi m.st. Warszawy — 20%
+- innowacyjność i pomysłowość — 25% (najcięższa waga)
+- praktyczne zastosowanie i potencjał wdrożeniowy — 20%
+- związek z wyzwaniami i realiami m.st. Warszawy — 15%
+- jakość prezentacji przed Jury — 20%
+
+Prezentacja: 5 min + 2 min pytań. Trzy miejsca w każdej kategorii Wyzwania.
 
 ---
 
@@ -47,7 +49,7 @@ Przeciw:
 
 ## Pomysł 3: Park-and-ride decydent (asystent dojazdu)
 
-Mega prosta apka: wpisujesz adres docelowy, zaznaczasz "siedzę już w samochodzie" / "wychodzę za 5–30 min". Model decyzyjny (typu Jev) liczy w czasie rzeczywistym: jechać autem bezpośrednio, czy korki i lepiej podjechać do ZTM i ominąć je komunikacją. Po drodze sprawdza wolne miejsca parkingowe (Parkuj i Jedź / miejskie), rozkłady i pozycje ZTM, ruch drogowy i utrudnienia (remonty etc). Dane: lokalizacje i rozkłady komunikacji, parkingi, ruch, utrudnienia — wszystko ze zbiorów UM.
+Mega prosta apka: wpisujesz adres docelowy, zaznaczasz "siedzę już w samochodzie" / "wychodzę za 5–30 min". Model decyzyjny (typu Jev) liczy w czasie rzeczywistym: jechać autem bezpośrednio, czy korki i lepiej podjechać do ZTM i ominąć je komunikacją. Po drodze sprawdza wolne miejsca parkingowe (Parkuj i Jedź / miejskie), rozkłady i pozycje ZTM, ruch drogowy i utrudnienia (remonty etc). Wyróżnik vs Google Maps: na żywo W TRAKCIE jazdy przelicza, czy w danym momencie nie lepiej podjechać na przystanek i się przesiąść, żeby zaoszczędzić czas. Dane: lokalizacje i rozkłady komunikacji, parkingi, ruch, utrudnienia — wszystko ze zbiorów UM.
 
 Za:
 - Najsilniejszy fit z miastem: korki, parkingi i multimodalność to ich własne KPI.
