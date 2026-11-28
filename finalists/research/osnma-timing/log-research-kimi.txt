@@ -1,0 +1,16 @@
+attempt 1 kimi failed: short kimi output; stderr tail: pipeline [90mGeneral Agent[0m
+[0m✓ [0mAudit timing algorithms [90mGeneral Agent[0m
+[0m✓ [0mCheck regulation business [90mGeneral Agent[0m
+[0m✓ [0mStress test demo rules [90mGeneral Agent[0m
+> build · kimi-k3.1-pro
+[90mwaiting for 4 background jobs[0m
+>
+attempt 2 kimi failed: short kimi output; stderr tail: [0m
+> build · kimi-k3.1-pro
+[91m[1mError: [0mOpenCode Go 5 hour usage limit reached. Switch to a free model, or turn on Extra Usage on the Go page in OpenCode Console to keep going.
+
+attempt 3 kimi failed: short kimi output; stderr tail: [0m
+> build · kimi-k3.1-pro
+[91m[1mError: [0mOpenCode Go 5 hour usage limit reached. Switch to a free model, or turn on Extra Usage on the Go page in OpenCode Console to keep going.
+
+FAIL kimi

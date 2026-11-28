@@ -1,0 +1,2 @@
+usage {'input_tokens': 1260077, 'input_tokens_details': {'cached_tokens': 1163212}, 'output_tokens': 12519, 'output_tokens_details': {'reasoning_tokens': 870}, 'total_tokens': 1272596}
+OK wonder -> research-wonder.md (35072 chars)
