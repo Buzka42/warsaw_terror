@@ -313,15 +313,17 @@ With two people, B and C merge and the outage layer becomes a static overlay.
 
 ## 10. Friday-night checklist
 
-- [ ] **CAMF v1.2** downloaded from the GSC; list the changes from v1.1.
-- [ ] **EWSS status:** is Galileo broadcasting test alerts now? Any EUSPA receiver guidelines published?
-- [ ] **I/NAV location** of the EWSS / return-link bits (Galileo OS SIS ICD).
-- [ ] **GnssLogger:** do our phones log Galileo I/NAV pages? (Shared with Balloon Radar.)
-- [ ] **EMSR756** delineations for Stronie Śląskie, Lądek-Zdrój and Kłodzko areas.
-- [ ] **EFAS** access for September 2024 forecasts, or fallback plan.
-- [ ] **GHSL** population grid for Lower Silesia.
-- [ ] **Alert RCB:** how it works in 2026 (SMS vs. cell broadcast) so we describe it accurately.
-- [ ] **Authentication:** what EUSPA says about EWSS message authentication.
+> Web-research verification added Saturday 28 Nov 2026 (Muse Ember, primary sources; full notes in `finalists/research/last-signal/check-3/5/6/7/8.md`).
+
+- [ ] **CAMF v1.2** downloaded from the GSC; list the changes from v1.1. — **DO THIS TONIGHT.** Verified: v1.2 (Issue 1.2, March 2026) is the in-force version at `https://www.gsc-europa.eu/sites/default/files/sites/all/files/EWSS-CAMF_in_force.pdf` (note `_in_force`, not `_v1.2`). Payload 122 bits = 105 mandatory + 17 optional, fields A1→A18 with bit widths A1=2, A2=9, A3=5, A4=7, A5=2, A6=1, A7=14, A8=2, A9=1, A10=3, A11=5+5, A12=16, A13=17, A14=5, A15=5, A16=6, A17=2, A18=15. **Trap:** v1.1 "00000 = empty" became "reserved" in v1.2, and v1.1→v1.2 differences are not fully documented in the change-record — encode from the v1.2 tables directly. No expiry field; expiry = onset + duration.
+- [ ] **EWSS status:** is Galileo broadcasting test alerts now? Any EUSPA receiver guidelines published? — **VERIFIED: yes, and our submission is inside the window.** Service Notice #28 (SNGU 2026006): test transmissions 23 Jul–30 Nov 2026 carrying real Alert messages, authenticated via OSNMA ADKD=2. No receiver guidelines published — the EWSS SIS ICD exists only as proprietary `[AD-2]` under NDU in EUSPA grant EUSPA-GSA-GA-G-04-2022 (manufacturers receive `[RD-1]` at kick-off). Initial Service is 2027.
+- [ ] **I/NAV location** of the EWSS / return-link bits (Galileo OS SIS ICD). — **Only partially public.** The grant states the 122-bit EWM is encoded in the I/NAV SAR (long return-link) bits, but the 122→160-bit packing, repetition pattern and any worked decode are not published. No recorded EWSS capture or test vector exists publicly; the demo starts at the CAMF payload boundary unless a mentor provides a capture.
+- [ ] **GnssLogger:** do our phones log Galileo I/NAV pages? (Shared with Balloon Radar.) — **VERIFIED, with a catch.** `Nav` rows log Galileo I/NAV (29 bytes / 228 bits, `TYPE_GAL_I = 1537`); the 22-bit SAR field is at bits 172–193 (0-indexed, MSB-first) of the 29-byte payload — implement and CRC-validate, it's in neither source spelled out. **Critical:** a log alone cannot prove E1-B — `TYPE_GAL_I` covers E1-B and E5b-I and the API exposes no carrier field; E1-B identity must be inferred from `Raw`/`Status` rows (CarrierFrequencyHz, `CODE_TYPE_B` vs `CODE_TYPE_I`). Nav support is optional per chipset and many chipsets stop sending Nav after ephemeris decode.
+- [ ] **EMSR756** delineations for Stronie Śląskie, Lądek-Zdrój and Kłodzko areas. — **VERIFIED, with a correction: use Nysa, not Stronie.** EMSR756 is public via the CEMS Rapid Mapping API (`https://rapidmapping.emergency.copernicus.eu/backend/dashboard-api/public-activations/?code=EMSR756`; direct ZIP per product). AOI19 Stronie Śląskie is the wrong demo case: observed event 15.6 ha shrinking to 3.6 ha in MONIT01, fragmented sub-hectare polygons (grading grade) — an ellipse covering it covers the town, not a flood trade-off. **AOI03 Nysa instead:** product id:1043, DEL_MONIT01, Sentinel-2 2024-09-18, flooded 3,463 ha, max extent 5,433 ha, ZIP `https://rapidmapping.emergency.copernicus.eu/backend/EMSR756/AOI03/DEL_MONIT01/EMSR756_AOI03_DEL_MONIT01_v1.zip`. Do not confuse with AOI16 Nysa city (9.7 ha). Quote only API JSON, not portal/bulletin counts (20 vs 32 products).
+- [ ] **EFAS** access for September 2024 forecasts, or fallback plan. — not web-checked; treat as open.
+- [ ] **GHSL** population grid for Lower Silesia. — **VERIFIED: use GHS-POP R2023A (V1_0), DOI `10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE`.** R2025A items are long-range projections, not a 2020 replacement. Spec: World Mollweide (ESRI:54009), 100 m, float64, NoData −200. Confirm the tile and embedded NoData with `gdalinfo` after download — do not trust documentation alone.
+- [ ] **Alert RCB:** how it works in 2026 (SMS vs. cell broadcast) so we describe it accurately. — not web-checked; treat as open.
+- [ ] **Authentication:** what EUSPA says about EWSS message authentication. — **VERIFIED: 2026 test messages carry OSNMA ADKD=2** (Service Notice #28; previously a Reserved value in the OSNMA SIS ICD). Any other authentication claim needs a source.
 
 ---
 
