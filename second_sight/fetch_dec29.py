@@ -10,6 +10,7 @@ Usage:
   python fetch_dec29.py rogowiec # Belchatow per unit, 16-18 May 2021
   python fetch_dec29.py era5     # 100 m wind over Poland, Nov-Dec 2025
   python fetch_dec29.py cams     # irradiance at sample PV sites, Dec 2025
+  python fetch_dec29.py jrc      # JRC-PPDB-OPEN power plant register (no key needed)
 """
 import os
 import sys
@@ -80,5 +81,21 @@ def cams():
         print(name, df.shape)
 
 
+def jrc():
+    """JRC Open Power Plants Database v1.0 (Zenodo 3574566). Prints the Polish units."""
+    import io, urllib.request, zipfile
+    url = "https://zenodo.org/records/3574566/files/JRC-PPDB-OPEN.ver1.0.zip?download=1"
+    z = zipfile.ZipFile(io.BytesIO(urllib.request.urlopen(url, timeout=60).read()))
+    z.extractall(DATA / "jrc_ppdb_open")
+    for name in z.namelist():
+        if name.lower().endswith(".csv") and "unit" in name.lower():
+            df = pd.read_csv(DATA / "jrc_ppdb_open" / name, low_memory=False)
+            cc = next((c for c in df.columns if c.lower() in ("country", "country_code")), None)
+            pl = df[df[cc].astype(str).str.upper().isin(["PL", "POLAND"])] if cc else df
+            pl.to_csv(DATA / "jrc_ppdb_pl_units.csv", index=False)
+            print(name, "Polish units:", len(pl))
+            print(pl.head(20).to_string())
+
+
 if __name__ == "__main__":
-    {"entsoe": entsoe, "rogowiec": rogowiec, "era5": era5, "cams": cams}[sys.argv[1]]()
+    {"jrc": jrc, "entsoe": entsoe, "rogowiec": rogowiec, "era5": era5, "cams": cams}[sys.argv[1]]()

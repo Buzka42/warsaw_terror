@@ -13,6 +13,7 @@ python fetch_dec29.py entsoe
 python fetch_dec29.py era5
 python fetch_dec29.py cams
 python fetch_dec29.py rogowiec
+python fetch_dec29.py jrc             # JRC-PPDB-OPEN, no key
 python engine.py --backtest          # national wind: ERA5 physics vs ENTSO-E, 28 to 30 Dec 2025
 ```
 
