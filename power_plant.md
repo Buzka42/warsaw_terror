@@ -5,6 +5,8 @@
 
 > When attackers blind the operator and wipe the logs, space still sees the plant, and Galileo still keeps the time.
 
+Status, closed gaps and the Saturday task list: [`power_plant_status.md`](power_plant_status.md).
+
 This builds on the team's power plant strategy guide (`moa-raw/cassini_power_plant_hackathon_strategy.md`). It keeps the guide's best parts (two timescales, a deterministic engine, a KSC incident report as the output, read only and out of band) and replaces the simulated attack with the real Polish attack of 29 December 2025, replayed on real data. Items marked **[VERIFY]** are not confirmed yet.
 
 ---
