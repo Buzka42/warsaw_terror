@@ -2203,6 +2203,8 @@ Complete these in order. Do not start with the pitch deck or phone UI.
 - [ ] Confirm duration, expiry, and all-clear rules.
 - [ ] List every difference from v1.1 that affects the implemented subset.
 
+> **Verified with web research 28 Nov (Ember):** v1.2 is the in-force version (Issue 1.2, March 2026) at `https://www.gsc-europa.eu/sites/default/files/sites/all/files/EWSS-CAMF_in_force.pdf` — note filename is `_in_force`, not `_v1.2`. Payload 122 bits = 105 mandatory + 17 optional, field order A1→A18 with exact bit widths (A1=2, A2=9, A3=5, A4=7, A5=2, A6=1, A7=14, A8=2, A9=1, A10=3, A11=5+5, A12=16, A13=17, A14=5, A15=5, A16=6, A17=2, A18=15). **Semantic trap:** v1.1 "00000 = empty" became "reserved" in v1.2, and v1.1→v1.2 differences are not fully documented in the change-record — encode from the v1.2 tables, never from v1.1 memory. There is no separate expiry field; expiry is derived from onset + duration.
+
 **Fallback:** If v1.2 cannot be obtained by midday, label the codec “experimental — not v1.2 validated.”
 
 ### 4. Test the Python/GIS environment on both laptops
@@ -2226,6 +2228,8 @@ Complete these in order. Do not start with the pitch deck or phone UI.
 - [ ] Save the raw ZIP and extracted GeoJSON.
 - [ ] Hash the files.
 
+> **Verified 28 Nov (Ember) — switch first choice from Stronie to Nysa:** EMSR756 is real and public ("Flood in South West Poland", activated 2024-09-13) via the CEMS Rapid Mapping API: `https://rapidmapping.emergency.copernicus.eu/backend/dashboard-api/public-activations/?code=EMSR756` (each product has a direct ZIP `downloadPath` and a GeoJSON layer URL — not the CDSE portal). **AOI19 Stronie Śląskie is the wrong demo case:** Sentinel "observed event" is 15.6 ha, shrinking to 3.6 ha in MONIT01, fragmented sub-hectare polygons, Grading grade — an ellipse covering it covers the town AOI, not a flood trade-off. **Use AOI03 Nysa instead:** product id:1043, DEL_MONIT01, Sentinel-2 2024-09-18, flooded 3,463 ha, max extent 5,433 ha, ZIP `https://rapidmapping.emergency.copernicus.eu/backend/EMSR756/AOI03/DEL_MONIT01/EMSR756_AOI03_DEL_MONIT01_v1.zip`. AOI16 Nysa city (9.7 ha, also grading) is a different AOI. Product counts conflict between portal (20) and bulletin (32) — quote only the API JSON.
+
 **Stop condition:** If neither AOI produces usable geometry by late morning, reassess the project before building the UI.
 
 ### 6. Download and validate GHSL
@@ -2237,11 +2241,15 @@ Complete these in order. Do not start with the pitch deck or phone UI.
 - [ ] Confirm the result is non-trivial.
 - [ ] Record the download URL and attribution.
 
+> **Verified 28 Nov (Ember):** GHS-POP R2023A (V1_0) is still the current global product — JRC Data Catalogue DOI `10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE`. R2025A items are long-range projections only; using them for 2020 exposure would be wrong. Spec: World Mollweide (ESRI:54009), 100 m, float64 population, NoData −200. The exact AOI tile and embedded NoData can only be confirmed with `gdalinfo` after download — do not tick this box on documentation alone (previous GHSL tiles were shipped without embedded NoData).
+
 **Stop condition:** If the population denominator is zero or extremely small, switch AOI once.
 
 ### 7. Run the phone gate in parallel
 
 Maximum 30 minutes.
+
+> **Verified 28 Nov (Ember):** GnssLogger does log Galileo Nav records (`Nav` rows, fixed format `Nav,Svid,Type,Status,MessageId,Sub-messageId,Data(Bytes)`; FORMAT spec in google/gps-measurement-tools). Android spec: Galileo I/NAV = 29 bytes / 228 bits (even+odd page parts, MSB first), `TYPE_GAL_I = 1537`. The 22-bit SAR field sits at bits 172–193 (0-indexed, MSB-first) of that 29-byte payload — derived from the two primary sources, not printed in them, so implement and CRC-validate. **Critical:** `Nav` alone cannot prove E1-B — `TYPE_GAL_I` covers I/NAV on both E1-B and E5b-I, and the API exposes no carrier/frequency field, so E1-B identity must be inferred from `Raw`/`Status` rows (CarrierFrequencyHz, `CODE_TYPE_B` vs `CODE_TYPE_I`) — that is inference, not proof. Nav-message support is optional and chipset-dependent; many chipsets stop sending Nav after ephemeris decode, so streaming may die mid-log.
 
 - [ ] Take phones outdoors.
 - [ ] Start GnssLogger.
@@ -2261,6 +2269,8 @@ Ask ChipCraft or GNSS mentors:
 - [ ] “Can you share a recorded capture and its expected decoded fields?”
 - [ ] “Which long return-link code/repetition pattern should we expect?”
 - [ ] “Does GnssLogger preserve the relevant SAR field on any device you know?”
+
+> **Verified 28 Nov (Ember):** there is no published EWSS SIS ICD or receiver guideline, and no public EWSS capture or test vector exists. The GSC in-force list has only CAMF v1.2; CAMF explicitly leaves encapsulation and receiver guidelines to providers. The EWSS SIS ICD exists only as proprietary `[AD-2]` under NDU in EUSPA grant EUSPA-GSA-GA-G-04-2022 (manufacturers get `[RD-1]` at kick-off). The grant's only official encapsulation statement: the 122-bit EWM is encoded in the I/NAV SAR (return-link) bits as long return-link messages — but the 122→160-bit packing and any worked decode are not published. Service Notice #28: test transmissions 23 Jul–30 Nov 2026, authenticated via OSNMA ADKD=2 — **our submission (Sun 29 Nov 15:00 CET) falls inside the internal test window, one day before it ends.** The demo therefore starts at the CAMF payload boundary; obtaining a real capture is only possible via a ChipCraft/mentor contact.
 
 **Decision:** Without a capture and expected decode, the demo starts at the CAMF payload boundary.
 
