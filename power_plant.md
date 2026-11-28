@@ -38,9 +38,20 @@ On 29 December 2025, during snowstorms just before New Year, a coordinated attac
 - **More than 30 wind and PV farms.** Attackers damaged RTU firmware and deleted files. The farms lost communication with the distribution system operator and could not be controlled remotely. Production itself was not affected, but the operator could not see that.
 - **A large CHP plant** heating nearly 500,000 people. Wiper malware was blocked by EDR.
 - **A second, smaller CHP plant** heating about 50,000 people. The attacker switched Siemens PLCs to STOP and locked them with a password, stopping a steam turbine and a water treatment station. **The operator first assumed a contractor engineer's mistake and reported it as informational.** Resetting the PLCs and the firewall wiped their logs, and Siemens confirmed the PLC logs were unrecoverable.
-- **Attribution:** infrastructure overlapping with the cluster known as Static Tundra, Berserk Bear, Ghost Blizzard or Dragonfly. CERT calls it the first publicly documented destructive activity by that cluster.
+- **Attribution differs by source.** CERT Polska: infrastructure overlapping with Static Tundra / Berserk Bear / Ghost Blizzard / Dragonfly. Dragos: ELECTRUM (moderate confidence), the group behind the 2015 and 2016 Ukraine grid attacks. Both agree it was Russia-linked and destructive. Dragos calls it the first major coordinated attack on distributed energy resources anywhere.
 
 Three failures, one pattern: **the operator lost sight, misread what it saw, and lost the evidence.** Every one of those failures happened inside the plant's own systems. Nothing outside the plant was watching.
+
+### Why today's tools can't close this gap
+
+| Today's layer | What it does well | Where December broke it |
+|---|---|---|
+| DSO SCADA via RTUs | Live telemetry and remote control | The RTUs were the target. No RTU, no telemetry |
+| OT network monitoring (Dragos, Nozomi, Claroty, Radiflow) | Sees traffic, detects intrusions | Sees nothing once routers, Moxa servers and RTUs are bricked. Same network path as the attacker |
+| On-site logs (PLCs, firewalls, routers) | Forensics after the fact | Wiped by factory resets. Siemens: unrecoverable |
+| Hardening (MFA, APN isolation, CERT recommendations) | Prevents the next entry | Necessary, but says nothing about what is happening during an attack |
+
+Dragos puts the trend in one line: attackers increasingly target the systems operators rely on to see, understand and manage the grid. **Second Sight's advantage is structural: it has no network path into the plant.** It looks from orbit and keeps its evidence elsewhere, so the attacker can't brick it, spoof it through the same router, or wipe it. We complement the tools above; we don't replace them.
 
 ### What we deliver
 
@@ -89,9 +100,13 @@ The new thing is the combination: physics from space used as an independent secu
 - **Renewable fleet owners** (PGE Energia Odnawialna and others).
 - **Sector CSIRTs and CERT Polska**, as users of the evidence trail.
 
-### Why they would pay
-- **KSC (Poland's NIS2 law):** early warning and incident reporting deadlines. **[VERIFY: exact dates, deadlines and fines before any slide]**
-- **CER Directive:** critical entities must assess risk and show resilience. Section 8 gives them a measurable answer. **[VERIFY article and dates]**
+### Why they would pay: the next 18 months
+- **KSC (Poland's NIS2 law):** in force since 3 April 2026; registration closed 3 October 2026; **implementation deadline 3 April 2027**. Managers face personal fines up to 300% of monthly pay. Honest caveat: penalties generally can't be imposed until two years after entry into force (CMS), so the pull is the April 2027 deadline and the December attack, not fines.
+- **Network Code on Cybersecurity (EU 2024/1366):** EU-wide electricity cyber risk report in 2026, controls proposal early 2027, entity designation mid 2027, first entity reports 2028. ACER asks for operational reliability performance indicators, first submission window 2027 covering 2026. Section 8's metrics are built to feed this. **[VERIFY exact indicator definitions in the ACER guidance of 27 January 2026]**
+- **Cybersecurity Act revision (draft, January 2026):** lets the Commission mandate measures, including limiting remote access to EU solar systems via inverters. In May 2026 the Commission began phasing high-risk inverters out of EU-funded projects.
+- **European Grids Package (December 2025):** explicitly aims to boost grid resilience against cyber and physical risks.
+- **CER Directive:** critical entities must assess risk and show resilience. **[VERIFY article and dates]**
+- **Scale:** Poland has about 12 GW of wind and 28 GW of PV (PSE, autumn 2026). Thousands of farms sit behind the same kind of remote access that was abused in December.
 - **Scale:** Poland has about 12 GW of wind and 28 GW of PV (PSE, autumn 2026). Thousands of farms sit behind the same kind of remote access that was abused in December.
 
 ### Revenue model (hypothesis)
@@ -99,6 +114,16 @@ Per MW monitored per year for operators; a resilience assessment as a paid annua
 
 ### Framing for a Polish jury
 Civilian and defensive. Uses only public data. Doesn't touch control systems. The only attack data in the pitch is from CERT Polska's own public reports.
+
+### The big vision: where the EU is going
+- **European Space Shield**, launching 2026 with delivery as early as 2027, built on Galileo (including PRS), Copernicus, the planned EOGS and IRIS². ESA's European Resilience from Space programme is funded at €1.35 billion. Europe is turning its space assets into a security layer; Second Sight is a civilian application of exactly that idea for the energy grid.
+- **Roadmap, in order:**
+  1. **Now:** replay on ERA5 and CAMS (this hackathon).
+  2. **Next:** live operation on ECMWF open forecasts and MTG nowcasts.
+  3. **Inverter "kill switch" check:** when a region's PV output drops by gigawatts, Copernicus clouds tell the operator in minutes whether it's weather or a remote shutdown. This is the scenario behind the Cybersecurity Act revision.
+  4. **Galileo PRS and Signal Authentication** for the evidence clock, plus Grid Time Guard for the grid's own GNSS time.
+  5. **IRIS² or GOVSATCOM** as a backup path for alerts when terrestrial comms are down.
+  6. **EU-wide resilience scores** feeding the NCCS cycle.
 
 ---
 
@@ -130,6 +155,8 @@ Civilian and defensive. Uses only public data. Doesn't touch control systems. Th
 | "Where's Galileo?" | Authenticated time on an evidence log outside the plant. The CERT supplement shows why: the PLC and firewall logs were wiped. |
 | "Isn't this an AI platform?" | No model is trained on attacks. Physics plus transparent rules, all printed on screen. |
 | "Which 30 farms were hit?" | Not public. We use a sample of public farms and say so. |
+| "Dragos or Nozomi already do OT security." | They watch the network. In December the network was the target. We add a source with no network path, and we feed their SIEM. |
+| "Isn't hardening enough?" | Hardening stops entry. It doesn't tell you, mid-attack, whether 30 farms are still running. Both are needed. |
 | "Can't attackers fake telemetry to match the physics?" | Only if they know the weather model and the farm, in real time. And telemetry loss, the December pattern, is caught regardless. |
 
 ### Technical risks
@@ -255,7 +282,7 @@ Python (pandas, xarray, pvlib, entsoe-py, cdsapi), FastAPI, a small web console,
 - [ ] Asset sample with a citable source
 - [ ] Backtest error computed
 - [ ] OSNMA time source: phone or recorded data
-- [ ] KSC and CER facts verified with sources
+- [x] KSC dates verified (see sources); CER still to verify
 - [ ] At least one practitioner quote (DSO, CERT, mentor)
 - [ ] Read the full CERT PDFs for any visibility or telemetry details
 
@@ -282,3 +309,11 @@ Python (pandas, xarray, pvlib, entsoe-py, cdsapi), FastAPI, a small web console,
 - ESA on OSNMA: https://www.esa.int/Applications/Satellite_navigation/Galileo_vs._spoofing_ESA_tests_in_real-world_environments
 - TROPOMI NO2 vs ENTSO-E for 18 plants (ACP 2026): https://acp.copernicus.org/articles/26/4405/2026/
 - Climate TRACE on Bełchatów: https://climatetrace.org/news/views-from-above-belchatow-power-station-poland
+- Dragos, ELECTRUM and the Poland attack: https://www.dragos.com/blog/poland-power-grid-attack-electrum-targets-distributed-energy-2025
+- Dragos 2026 grid threat insights: https://dragos.com/blog/electric-grid-cybersecurity-threats
+- KSC timeline: https://www.addleshawgoddard.com/en/insights/insights-briefings/2026/technology/nis2-directive-finally-implemented-Poland-what-businesses-need-know/ and penalties caveat https://cms.law/en/pol/legal-updates/cybersecurity-in-the-supply-chain-what-nis2-changes-in-poland
+- NCCS roadmap: https://www.innobu.com/en/articles/nccs-network-code-cybersecurity-obligations-2026.html and ACER indicators https://www.acer.europa.eu/news/acer-launches-guidance-track-cybersecurity-performance-eu-electricity-networks
+- Cybersecurity Act revision and PV remote access: https://www.solarpowereurope.org/press-releases/statement-european-commission-publish-draft-revision-of-the-cybersecurity-act
+- Inverter phase-out in EU-funded projects: https://www.euronews.com/my-europe/2026/05/04/eu-moves-to-ban-high-risk-inverters-from-china-over-cybersecurity-threats
+- European Grids Package: https://www.eesc.europa.eu/en/news-media/press-summaries/european-grids-package
+- European Space Shield: https://europeanspaceflight.com/?p=5367 and https://www.brusselstimes.com/1993061/eu-launches-secure-satellite-network-pooling-military-capacities-for-shared-use
