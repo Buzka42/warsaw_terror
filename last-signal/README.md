@@ -17,8 +17,9 @@ This folder is **read-only evidence and planning material**. Nothing in it decid
 | 7 | `docs/05-business.md` | Buyer, pricing hypothesis, procurement path |
 | 8 | `docs/06-technical-notes.md` | Technical description as researched — input for planning, not decisions |
 | 9 | `checks/` | Five web-verified checklist checks (Muse Ember, primary sources): CAMF v1.2 · EMSR756 · GHSL · GnssLogger · EWSS ICD status |
-| 10 | `CASSINI_IDEA_RANKING.md` | The full 29-idea MoA ranking (context: Last Signal scored 7.4, ranked #1) |
-| 11 | `proof-of-place.md`, `proof-of-place-dossier.md` | Future merge candidate — plain-language + technical dossier of the #3 idea |
+| 10 | `research/` | The underlying research papers behind the dossier: independent reviews by GPT Sol 6.2 and Muse Wonder (Kimi K3.1 was unavailable), the web-verified fact-check table, hackathon guidelines, past-winners notes, the ranking section and the original design doc |
+| 11 | `CASSINI_IDEA_RANKING.md` | The full 29-idea MoA ranking (context: Last Signal scored 7.4, ranked #1) |
+| 12 | `proof-of-place.md`, `proof-of-place-dossier.md` | Future merge candidate — plain-language + technical dossier of the #3 idea |
 
 ## Key facts the team must not have to re-derive
 
@@ -28,8 +29,4 @@ This folder is **read-only evidence and planning material**. Nothing in it decid
 - **A GnssLogger log cannot prove E1-B** (`TYPE_GAL_I` covers E1-B and E5b-I). E1-B identity must be inferred from Raw/Status rows.
 - **GHSL GHS-POP R2023A** is the current global product (DOI `10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE`); confirm tile/NoData with `gdalinfo` after download.
 
-## Where things live outside this folder
-
-- `finalists/research/last-signal/` — raw research reviews (Sol, Wonder; Kimi unavailable), design docs, prompts, logs
-- `finalists/1-last-signal.md` — the dossier in the shared finalists folder (same content as `last-signal-dossier.md`)
-- `moa-raw/` — the six model idea legs, the Neon report and the System One doc
+Everything for this project is in this folder. No file you need is located anywhere else.
