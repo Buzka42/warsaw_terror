@@ -68,7 +68,7 @@ Dragos puts the trend in one line: attackers increasingly target the systems ope
 |---|---|---|---|
 | **Copernicus CAMS solar radiation time series** | Irradiance (GHI, DNI, DHI) at each PV farm, 1 or 15 min steps, 2004 to present | ADS, or `pvlib.iotools.get_cams` (free SoDa account) | about 2 days |
 | **Copernicus ERA5** (C3S) | Hourly 100 m wind at each wind farm | CDS API (free key) | about 5 days (ERA5T) |
-| **Copernicus CLMS / Sentinel-2** | Confirms the farm exists where the register says, and its footprint | CDSE / openEO | days |
+| **ESA APEx algorithms on Sentinel-2** (official contest resource): *Photovoltaic farms mapping* (`eurac_pv_farm_detection`) and *Wind Turbine Detection* | Finds every PV farm and wind turbine in a region, with footprints. Builds our asset register for the small farms JRC-PPDB-OPEN misses | CDSE openEO, free tier | days |
 | **Galileo OSNMA** | Authenticated time for each entry in the evidence log | Receiver at the monitoring site, OSNMAlib | real time |
 | **JRC-PPDB-OPEN** (JRC, official contest resource) | European power plants at unit level: location, capacity, fuel, matched to ENTSO-E unit codes (EIC) | Zenodo, 1.3 MB zip | static (v1.0, 2019) |
 | **ENTSO-E Transparency Platform** (not space data) | Actual generation per production type in Poland, and per unit for large plants | REST API (free token), `entsoe-py` | about 1 hour |
@@ -132,7 +132,7 @@ Civilian and defensive. Uses only public data. Doesn't touch control systems. Th
 
 ### Components
 1. **Data loader:** ENTSO-E actual wind and solar generation for Poland, 1 November to 31 December 2025; ERA5 100 m wind over Poland; CAMS irradiance at PV sites (`scripts/fetch_dec29.py`).
-2. **Asset register:** **JRC-PPDB-OPEN** for the large units (Bełchatów, CHP plants), which links each unit's EIC code to its ENTSO-E per-unit generation and its coordinates for the satellite checks. It's mainly built from ENTSO-E's unit lists, so small wind and PV farms are likely missing; for those we add public locations from OpenStreetMap and the URE register. **[VERIFY Polish coverage in JRC-PPDB-OPEN, and that 2019 data still matches 2025 units]**
+2. **Asset register:** **JRC-PPDB-OPEN** for the large units (Bełchatów, CHP plants), which links each unit's EIC code to its ENTSO-E per-unit generation and its coordinates for the satellite checks. It's mainly built from ENTSO-E's unit lists, so small wind and PV farms are likely missing. For those we run the **APEx PV farm mapping and wind turbine detection** algorithms on Sentinel-2 over the demo region, cross-checked against OpenStreetMap. PV capacity is estimated from footprint area, turbine capacity from a typical rating. **[VERIFY: MW per hectare factor; the APEx wind algorithm's ID and free-tier run time]** **[VERIFY Polish coverage in JRC-PPDB-OPEN, and that 2019 data still matches 2025 units]**
 3. **Physics model:** wind uses a standard power curve on 100 m wind speed; PV uses irradiance times capacity times a performance ratio. Each gives an expected band, not a single number.
 4. **Calibration and backtest:** fit on November and early December 2025 at national level against ENTSO-E, then test on 29 December. Report the error.
 5. **Discrepancy engine:** rules from section 7.2.
@@ -236,6 +236,7 @@ Python (pandas, xarray, pvlib, entsoe-py, cdsapi), FastAPI, a small web console,
 
 | Metric | Question | How we compute it |
 |---|---|---|
+| **Register gap** | How many farms exist on the ground (APEx on Sentinel-2) that aren't in the operator's or JRC's register? | Detected assets not matched to a register entry |
 | **Observability under blackout** | If telemetry from every farm in a region went dark, how many MW could we still estimate, and how well? | Share of regional capacity covered by the physics model, with the backtest error |
 | **Verification error** | How close is space based physics to reality? | Error of expected vs actual, ENTSO-E, over the backtest months |
 | **Evidence survival** | If every on-site log were wiped, how much of the timeline survives? | Share of incident events present in the external log (100% by design; 0% for PLC logs in the December CHP case) |
@@ -280,7 +281,8 @@ Python (pandas, xarray, pvlib, entsoe-py, cdsapi), FastAPI, a small web console,
 - [ ] ENTSO-E token, CDS key, SoDa account registered
 - [ ] `fetch_dec29.py` runs and saves data
 - [ ] ENTSO-E Poland wind and solar for 29 December has no gaps
-- [ ] Asset register: JRC-PPDB-OPEN loaded, Polish units checked; OSM/URE for small farms
+- [ ] Asset register: JRC-PPDB-OPEN loaded, Polish units checked
+- [ ] APEx PV farm mapping and wind turbine detection run on one Polish region (CDSE free tier)
 - [ ] Backtest error computed
 - [ ] OSNMA time source: phone or recorded data
 - [x] KSC dates verified (see sources); CER still to verify
@@ -309,6 +311,7 @@ Python (pandas, xarray, pvlib, entsoe-py, cdsapi), FastAPI, a small web console,
 - CAMS solar radiation time series: https://ads.atmosphere.copernicus.eu/datasets/cams-solar-radiation-timeseries
 - ESA on OSNMA: https://www.esa.int/Applications/Satellite_navigation/Galileo_vs._spoofing_ESA_tests_in_real-world_environments
 - TROPOMI NO2 vs ENTSO-E for 18 plants (ACP 2026): https://acp.copernicus.org/articles/26/4405/2026/
+- ESA APEx algorithm catalogue, PV farm mapping: https://algorithm-catalogue.apex.esa.int/apps/eurac_pv_farm_detection
 - JRC-PPDB-OPEN: https://zenodo.org/records/3574566 (background report JRC106289: https://publications.jrc.ec.europa.eu/repository/handle/JRC106289)
 - Climate TRACE on Bełchatów: https://climatetrace.org/news/views-from-above-belchatow-power-station-poland
 - Dragos, ELECTRUM and the Poland attack: https://www.dragos.com/blog/poland-power-grid-attack-electrum-targets-distributed-energy-2025
