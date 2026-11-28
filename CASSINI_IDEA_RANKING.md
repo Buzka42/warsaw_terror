@@ -1,9 +1,3 @@
-I couldn't save the ranking: writing `/tmp/warsaw_terror/moa_ranking.md` was blocked, because nobody can approve file writes in this non-interactive session. The full document is below; save it as `moa_ranking.md`.
-
-Reading `/home/arawn/Projects/cassini-moa/` was also blocked, so I couldn't read `AGGREGATION_RULES.md` at all. I worked from the identically named copies in this repo instead. The expanded border-OSINT doc is committed here as `moa-raw/patryk-border-osint.md`. I applied rule 4 as your brief describes it. I had to guess at rule 5 (the truncation note); how I handled it is set out at the top of the document. Web search was also blocked, so facts I couldn't confirm are marked *(verify)*.
-
----
-
 # CASSINI Warsaw 2026: MoA idea aggregation and ranking
 
 *12th CASSINI Hackathon, EU Space for Peace and Resilience, Warsaw, 27–29 November 2026. Aggregated 28 November 2026.*
@@ -32,7 +26,21 @@ Reading `/home/arawn/Projects/cassini-moa/` was also blocked, so I couldn't read
 - No idea lost points because a section looked thin from truncation.
 - If the real rule says otherwise, re-check the entries that draw on the System One doc: #5, #6, #13, #16, #19, #26 and #29.
 
-**Unverified facts.** Claims in the Neon and System One docs dated after mid-2026 are treated as those sources' claims, not as checked facts. That covers the KSC dates, the PLN 1.1 bn waste programme, the SENT fines, and the "System One" models (Jev, Clef) with their benchmarks. Items marked *(verify)* are my own recollection.
+**Fact check (web-verified 28 Nov 2026).** The aggregation run had no web access; every *(verify)* item and the key source claims were checked afterwards against primary sources:
+
+| Claim | Verdict | Source |
+|---|---|---|
+| KSC/NIS2 amendment (Dz.U. 2026 poz. 252) in force 3 Apr 2026; register deadline 3 Oct 2026; security measures + S46 by 3 Apr 2027 | **Confirmed** | isap.sejm.gov.pl, biznes.gov.pl |
+| …but **financial penalties can only be imposed from 3 Apr 2028** (first audit of essential entities) | **New nuance** — weakens the "April 2027 fines cliff" urgency every NIS2 pitch leans on | cybersecuritydatabase.org (checked vs ISAP) |
+| PLN 1.1 bn illegal-waste programme, announced 23 Nov 2026 | **Confirmed**, but Neon's "29,000 t across 17 sites" is off: ~29,000 t removed, 11 sites fully cleared, 52 sites funded | gov.pl/web/klimat (23.11.2026) |
+| SENT-GEO: PLN 10,000 carrier fine per GPS-data gap + PLN 5,000–7,500 driver fine | **Confirmed.** Bonus: the fine can be waived (art. 22(3)) and gaps caused by register unavailability aren't fined (art. 22(2b)) — exactly what an evidence pack would argue | prawnicytransportu.pl, gov.pl/kas, WSA III SA/Wr 71/26 |
+| Smart tachograph v2 records positions only at events (day start/end, every 3 h accumulated driving, border crossings, load/unload), with an authenticated flag | **Confirmed** — the "per-second OSNMA truck track" claim is wrong | EC TRACE II guidance, VDO DTCO 4.1 datasheet |
+| EUDR postponed: 30 Dec 2026 large/medium operators, 30 Jun 2027 micro/small | **Confirmed** (Reg. (EU) 2025/2650) | EC Access2Markets, BLE |
+| Sentinel-1 6-day repeat restored 24 Jun 2026 by **Sentinel-1C + 1D**; Sentinel-1A retired 29 Jun 2026 | **Confirmed** — any doc citing "Sentinel-1A/1C" is out of date | sentinels.copernicus.eu, CDSE news |
+| Galileo EWSS: test transmissions of real alert messages (OSNMA ADKD=2) 23 Jul–30 Nov 2026; Initial Service 2027 | **Confirmed** (see #1) | Galileo Service Notice #28, ION GNSS+ 2026 |
+| Vilnius balloon closures | **Confirmed and ongoing:** ~60 h of suspensions and 300+ flights/47,000 passengers hit in 2025; ~10 disruptions in 2026, latest 10–11 Nov 2026 | LRT, BB.LV, AirVeto |
+| TypeSafe Jev / Cloudflare Clef "System One" models | **Real.** Clef/Clef-flash launched 1 Oct 2026, Apache 2.0; latency 209 / 39 ms vs Jev 524 ms median. Caveat: TypeSafe docs still say Jev is **text-only** — the System One doc's Jev vision/Box claims need checking before anyone builds on them | Cloudflare blog + changelog, docs.typesafe.ai |
+
 
 ## How the scores work
 
@@ -143,7 +151,7 @@ The Kłodzko 2024 flood is the demo case in about a dozen ideas, two of them the
 - **Very buildable in 48 h:** a bit-packing codec, a grid-search optimiser, a public population grid and archived EMS flood outlines.
 
 **Minuses and limitations**
-- **EWSS may not broadcast alerts yet** (it's in testing or approaching initial service, *verify*). The demo injects alerts into recorded logs, and a sceptic will call it "simulated".
+- **EWSS is not live yet: Initial Service is 2027.** But Galileo has been broadcasting *real* test alert messages (authenticated with OSNMA ADKD=2) from 23 Jul to 30 Nov 2026 (Service Notice #28) — the test window closes the day after the hackathon. If the team can capture or replay a genuine test EWM with OSNMAlib, the "simulated" objection mostly dies; if not, the demo injects alerts into recorded logs and a sceptic will call it simulated.
 - **No phone shows EWSS alerts today.** It needs chipset firmware, operating-system support, and a GNSS receiver that is actually running. Mass-market reception is years away, so the citizen-impact claim is a 2028-plus claim.
 - **Weak buyer.** EWSS is free to authorities, and Polish civil protection (RCB) buys slowly. The better buyers are public-warning-system vendors and chipset makers, selling through them to government.
 - **Biggest unknown.** If the EWSS ground segment or the national alert gateway already converts CAP polygons into CAMF ellipses, the optimiser becomes a feature rather than a product. Check this first.
@@ -167,7 +175,7 @@ The Kłodzko 2024 flood is the demo case in about a dozen ideas, two of them the
 **What it is.** Balloon Radar forecasts where cigarette-smuggling balloons launched from Belarus will drift. It runs 500 simulated flights through Copernicus wind data to cover their unknown altitude and lift. Air traffic control gets a conflict probability and a targeted closure window for the approach corridor. Border guards get a landing area and a patrol app that checks Galileo OSNMA status.
 
 **Pluses**
-- **No AI leg proposed it**, and the hook is unforgettable: Vilnius airport closed for about 11 hours by balloons, and the Border Guard confirmed balloons reaching Podlasie.
+- **No AI leg proposed it**, and the hook is unforgettable and current: balloons cost Vilnius ~60 hours of suspensions and 300+ flights (47,000 passengers) in 2025, there were ~10 more disruptions in 2026, the latest on 10–11 Nov 2026, and the Border Guard confirmed balloons reaching Podlasie. (The "11 hours" single-closure figure from the team doc wasn't confirmed; use the verified totals.)
 - **A live, falsifiable demo.** Predict the Legionowo radiosonde (12 UTC launch) and show the real landing during the pitch. Few teams will risk a live prediction, and it reads as confidence.
 - **Decision outputs** (closure window, dispatch ticket) that match the "early warning" pattern of past winners.
 - **Hybrid-threat framing** that suits the Warsaw security jury.
@@ -259,10 +267,10 @@ A "claim-check" mode lets fact-checkers test viral footage that was never sealed
 - **A non-obvious data source.** OSNMA is already built into mandatory tachographs, so no new hardware is needed.
 - **Pure business-to-business, EU-wide.** Sanctions liability (the No-Russia clause, re-export via Central Asia) makes this the strongest European Demo Day business story in the pool.
 - **Low convergence.** None of the six raw legs found it.
-- **A hidden gem: Polish SENT-GEO.** Carriers face PLN 10,000 fines for GPS data gaps, often caused by jamming (per S1, *unverified*). A "this gap was jamming" evidence pack for carriers is a concrete, local, cash pain.
+- **A hidden gem: Polish SENT-GEO.** Carriers face PLN 10,000 fines for GPS data gaps, often caused by jamming (verified: art. 22(2a) SENT Act; waivable under art. 22(3)). A "this gap was jamming" evidence pack for carriers is a concrete, local, cash pain.
 
 **Minuses and limitations**
-- **Tachographs don't record a continuous signed track.** They store authenticated positions only at events: start and end of the working day, roughly every 3 hours of driving, border crossings, and loading or unloading *(verify)*. Neon's "per-second OSNMA truck tracking" is wrong, and a GNSS juror will know it.
+- **Tachographs don't record a continuous signed track.** They store authenticated positions only at events: start and end of the working day, roughly every 3 hours of driving, border crossings, and loading or unloading (verified against EC TRACE II enforcement guidance). Neon's "per-second OSNMA truck tracking" is wrong, and a GNSS juror will know it.
 - **Wrong data owner.** Tachograph files belong to the carrier and to roadside control. An exporter or insurer gets them only if the carrier cooperates, and the carrier is the party being audited.
 - **The radar part is decorative.** 20 m radar every few days can't tie a truck cluster in a Belarusian yard to a specific shipment.
 - **The fraud mostly doesn't look like this.** Re-export via Central Asia usually means the goods really arrive and then move on paper. "Spoofed GPS detour into Belarus" is a minority case.
@@ -652,7 +660,7 @@ It also hashes and signs genuine Copernicus products at download.
 - **Shaky verdicts on small plots.** Smallholder plots are under a hectare, and 10 m pixels plus clouds make verdicts unreliable.
 
 **Known problems**
-- **The timing claim is likely wrong.** EUDR was postponed again in late 2025, as I recall to end-2026 for large operators and mid-2027 for small ones *(verify)*. GLM says it has applied since December 2025.
+- **The timing claim is wrong.** EUDR was postponed again by Reg. (EU) 2025/2650: it applies from 30 Dec 2026 for large and medium operators and 30 Jun 2027 for micro and small ones (verified). GLM says it has applied since December 2025. Upside: the obligation lands a month after the hackathon, so urgency is real — but so is the crowd of vendors already selling into it.
 
 **Bottom line:** a real business in the wrong room.
 
