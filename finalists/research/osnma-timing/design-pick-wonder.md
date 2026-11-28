@@ -1,0 +1,14 @@
+Picking your wildcard from ranks 4–29 on first principles — I'll verify the top penalised candidates against current jamming, NIS2/KSC and market facts before choosing.Second Sight's attack hook checks out, but its DSO-meter problem remains. I'll now test the SENT-gap pivot in #5 and the timing idea's recent escalation.WILDCARD: OSNMA timing integrity + NIS2 evidence
+RUNNER_UP: Second Sight
+
+## Why the ranking undervalues it
+
+Strip out the convergence and past-winner penalties, as instructed, and this is the joint-highest base score in the entire pool (7.4) — the ranking buries its own best-rated eligible idea. Two things have also moved in its favour since the idea was first scored. First, the threat escalated: Poland's National Institute of Telecommunications reports a "systematic and drastic increase" in intentional GNSS interference since the start of 2026, with significant disruptions on 39–70% of summer days around Gdańsk. Second, OSNMA is no longer speculative: it was declared operational on 24 July 2025, and by July 2026 EUSPA was documenting its integration into professional timing receivers — exactly the adoption story a European Demo Day panel rewards. Meanwhile Poland's KSC/NIS2 implementation deadline of 3 April 2027 creates a near-term compliance-work window even though fines only bite from 2028.
+
+## What the winning version looks like
+
+Don't build another timing receiver or a "spoof → red screen" demo; every rival has that. Build a **vendor-neutral timing-trust evidence layer** that sits beside whatever receiver a substation, 5G site or port already owns. It cross-checks OSNMA authentication status against an independent local reference (holdover oscillator / PTP peers) and receiver observables, then classifies the event: jamming (signal lost), forged navigation data (OSNMA fails), or delayed/replayed authentic signal (OSNMA passes but the clock drifts). The killer demo line is "authenticated — but still wrong," because OSNMA authenticates the navigation message, not the ranging signal, so record-and-rebroadcast attacks pass it. Frame the output as an EN 16605:2024 conformance scorecard — the European Galileo timing-receiver standard explicitly covers OSNMA processing and anti-jamming/anti-spoofing tests — plus a signed, KSC-ready incident record. Sell audit-and-evidence per site to Baltic energy, telecom and port operators first; expand at Demo Day as a pan-European conformance layer as EN 16605 receivers roll out.
+
+## Single biggest risk
+
+Incumbents are already shipping the core feature: Oscilloquartz integrated OSNMA into its timing platforms in July 2026, and GNSS firewalls already exist. If the pitch sounds like a receiver feature, vendors own it and the team loses. The vendor-neutral, cross-fleet evidence and conformance angle — ideally with one operator or integrator letter of intent — is the only defensible position.
