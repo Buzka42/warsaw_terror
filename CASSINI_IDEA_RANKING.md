@@ -1,6 +1,6 @@
 # CASSINI Warsaw 2026: MoA idea aggregation and ranking
 
-*12th CASSINI Hackathon, EU Space for Peace and Resilience, Warsaw, 27–29 November 2026. Aggregated 28 November 2026.*
+*12th CASSINI Hackathon, EU Space for Peace and Resilience, Warsaw, 27–29 November 2026. Aggregated 28 November 2026; #8 Second Sight re-scored after the team rewrite (Opus 5.5, max effort, same method).*
 
 ## Read this first
 
@@ -24,7 +24,7 @@
 - The System One doc is damaged. Its formulas and several cost figures are cut off mid-sentence (for example "drops from 3/M input, $15/M output … to 432.00"). Lines ~177–528 are bare reference titles with no links. None of that was used as evidence.
 - The GPT and Muse legs were re-committed as "full" versions, and the full versions were used.
 - No idea lost points because a section looked thin from truncation.
-- If the real rule says otherwise, re-check the entries that draw on the System One doc: #5, #6, #13, #16, #19, #26 and #29.
+- If the real rule says otherwise, re-check the entries that draw on the System One doc: #5, #6, #14, #17, #20, #26 and #29.
 
 **Fact check (web-verified 28 Nov 2026).** The aggregation run had no web access; every *(verify)* item and the key source claims were checked afterwards against primary sources:
 
@@ -110,24 +110,24 @@ The Kłodzko 2024 flood is the demo case in about a dozen ideas, two of them the
 | 5 | **ProofOfRoute / SanctionGate**: tachograph OSNMA + radar vs sanctions evasion | C3 | Neon, S1 | **5.2** | Great business, broken core claim; pivot to SENT jamming-gap evidence |
 | 6 | **OSNMA timing integrity + NIS2 evidence** (ChronoShield and 8 twins) | C1 | All 6 legs + Neon, S1, Plant | **4.9** | The idea every AI-assisted rival brings; no hard differentiator anywhere |
 | 7 | **BridgePass**: bridge GO/NO-GO for heavy convoys | C2 | Muse | **4.7** | Strong demo, but the satellite can only ever say "check" |
-| 8 | **GhostStack**: Sentinel-5P emitters vs registries | C3 | GLM | **4.5** | Original science; what it can see, commercial players already see |
-| 9 | **GhostWorks**: satellite audit of EU-funded works | C3 | DeepSeek | **4.4** | Tidy EO product in the wrong challenge; most fraud is indoors |
-| 10 | **Rail manifest reconciliation** (TorGuard / RailManifest) | C3 | Qwen, Muse | **4.3** | Great border story; the terminal already knows more than the satellite |
-| 11 | **VeriTerra**: physics checks for faked satellite images | C1 | DeepSeek | **4.2** | Right question, wrong resolution |
-| 12 | **Levee InSAR → work orders** (WałWatch / GruntWatch) | C2 | GLM, Qwen | **4.1** | Radar can't see into grass levees; EGMS and a past winner cover the rest |
-| 13 | **Illegal-waste inspection triage** (EcoForensic and co.) | C3 | Neon, S1, Kimi, GPT (+Qwen, Muse) | **4.0** | Hot news hook, six sources, and the waste sits inside warehouses |
-| 14 | **IntakeGuard**: drinking-water intake closure | C2 | DeepSeek, Muse | **3.9** | The utility's own river sensors beat the satellite |
-| 15 | **Parametric flood triggers** (Parametra / AccessSure) | C2 | GLM, Kimi | **3.8** | Right output, saturated market; the revisit misses flash floods |
-| 16 | **CorridorGuard (+ CER-Triage)** | C2 | Neon, S1 | **3.7** | Too slow for sabotage; incumbents own pipeline monitoring |
-| 17 | **EO provenance gate** (SentinelGate / OrbitReceipt) | C1 | Kimi, GPT | **3.6** | Correct and boring: nobody has been attacked this way |
-| 18 | **GridWade**: flood-to-grid switching playbook | C2 | DeepSeek | **3.6** | Utilities won't share the network data it needs |
-| 19 | **CrisisVerif**: AI triage of crisis posts vs Copernicus | C2 | S1 | **3.5** | A Proof of Place feature built on unverifiable AI models |
-| 20 | **Veritrace**: court-ready evidence chain for waste crime | C3 | Qwen | **3.5** | Good evidence spine inside the most crowded domain |
-| 21 | **ReCell**: mobile-network restoration dispatch | C2 | Kimi | **3.5** | An operator's internal planning problem |
-| 22 | **PumpSlot**: flood-pump mutual-aid dispatch | C2 | GPT | **3.4** | Safe to build, nothing to win; flood maps arrive too late |
-| 23 | **PlotProof**: EUDR deforestation audit API | C3 | GLM | **3.3** | A real business in the wrong room, in a crowded market |
-| 24 | **AirShift**: crew rescheduling during smoke episodes | C2 | GPT | **3.0** | A productivity feature, not resilience |
-| 25 | **Power-plant cyber-physical check** | C1 | Plant | **2.9** | The grid operator knows within seconds that a plant tripped; satellites add nothing |
+| 8 | **Second Sight** (power-plant rewrite): physics-from-space witness for blinded renewables + OSNMA evidence log | C1 (C2 link) | Team (rewrite of Plant) | **4.7** | Real attack, honest physics; but the DSO's own substation meters probably answer its question first, and Galileo is just a timestamp |
+| 9 | **GhostStack**: Sentinel-5P emitters vs registries | C3 | GLM | **4.5** | Original science; what it can see, commercial players already see |
+| 10 | **GhostWorks**: satellite audit of EU-funded works | C3 | DeepSeek | **4.4** | Tidy EO product in the wrong challenge; most fraud is indoors |
+| 11 | **Rail manifest reconciliation** (TorGuard / RailManifest) | C3 | Qwen, Muse | **4.3** | Great border story; the terminal already knows more than the satellite |
+| 12 | **VeriTerra**: physics checks for faked satellite images | C1 | DeepSeek | **4.2** | Right question, wrong resolution |
+| 13 | **Levee InSAR → work orders** (WałWatch / GruntWatch) | C2 | GLM, Qwen | **4.1** | Radar can't see into grass levees; EGMS and a past winner cover the rest |
+| 14 | **Illegal-waste inspection triage** (EcoForensic and co.) | C3 | Neon, S1, Kimi, GPT (+Qwen, Muse) | **4.0** | Hot news hook, six sources, and the waste sits inside warehouses |
+| 15 | **IntakeGuard**: drinking-water intake closure | C2 | DeepSeek, Muse | **3.9** | The utility's own river sensors beat the satellite |
+| 16 | **Parametric flood triggers** (Parametra / AccessSure) | C2 | GLM, Kimi | **3.8** | Right output, saturated market; the revisit misses flash floods |
+| 17 | **CorridorGuard (+ CER-Triage)** | C2 | Neon, S1 | **3.7** | Too slow for sabotage; incumbents own pipeline monitoring |
+| 18 | **EO provenance gate** (SentinelGate / OrbitReceipt) | C1 | Kimi, GPT | **3.6** | Correct and boring: nobody has been attacked this way |
+| 19 | **GridWade**: flood-to-grid switching playbook | C2 | DeepSeek | **3.6** | Utilities won't share the network data it needs |
+| 20 | **CrisisVerif**: AI triage of crisis posts vs Copernicus | C2 | S1 | **3.5** | A Proof of Place feature built on unverifiable AI models |
+| 21 | **Veritrace**: court-ready evidence chain for waste crime | C3 | Qwen | **3.5** | Good evidence spine inside the most crowded domain |
+| 22 | **ReCell**: mobile-network restoration dispatch | C2 | Kimi | **3.5** | An operator's internal planning problem |
+| 23 | **PumpSlot**: flood-pump mutual-aid dispatch | C2 | GPT | **3.4** | Safe to build, nothing to win; flood maps arrive too late |
+| 24 | **PlotProof**: EUDR deforestation audit API | C3 | GLM | **3.3** | A real business in the wrong room, in a crowded market |
+| 25 | **AirShift**: crew rescheduling during smoke episodes | C2 | GPT | **3.0** | A productivity feature, not resilience |
 | 26 | **SatSOC-Triage**: satellite telemetry triage | C1 | S1 | **2.9** | Tiny Polish market, research data only |
 | 27 | **WasteAlibi**: OSNMA vs truck alibis | C3 | Muse | **2.8** | An unauthenticated log doesn't put the truck at the dump |
 | 28 | **BlackoutBridge**: GNSS-denied offline crisis routing | C2 | Neon | **2.6** | Two crises glued together; offline maps already exist |
@@ -335,7 +335,113 @@ A "claim-check" mode lets fact-checkers test viral footage that was never sealed
 
 ---
 
-### 8. GhostStack: Sentinel-5P emitters vs registries
+### 8. Second Sight: physics-from-space witness for blinded renewables
+**Challenge 1 (C2 link) · Team rewrite of the power-plant strategy · 4.7 (base 5.0, −0.3 OSNMA-stamp template (d); no convergence or past-winner penalty)**
+
+**What it is.** A replay of the real attack on Polish energy on 29 December 2025.
+- **Expected output.** For each wind and PV farm, ERA5 100 m wind and CAMS irradiance give an expected-output band, calibrated against ENTSO-E.
+- **Verdicts.** When telemetry goes dark but the band says the farm should be producing, a printed rule returns `BLIND` ("comms or cyber, not an outage"). Several assets failing at once escalate to a coordinated event.
+- **Evidence and output.** Each verdict goes into an off-site, hash-chained log stamped with Galileo OSNMA time. The output is a KSC early-warning draft.
+- **Farm register.** JRC-PPDB-OPEN plus ESA APEx detection on Sentinel-2.
+- **Resilience mode.** Scores how much regional generation would stay observable if every RTU (the farm's remote telemetry unit) went dark.
+- **False-alarm check.** A replay of Rogowiec 2021 is meant to prove it doesn't cry wolf.
+
+**Pluses**
+- **The strongest hook in Challenge 1, and it's real.** CERT Polska documented it:
+  - 30+ wind and PV farms were cut off from their DSO;
+  - a CHP turbine stop was first filed as a contractor's mistake;
+  - the PLC logs were unrecoverable.
+
+  It's Polish, Russia-linked and eleven months old. Dragos calls it the first major coordinated attack on distributed energy, and the Cyber Defence Forces will be in the room.
+- **The physics finally matches the assets.** Estimating wind and PV output from wind speed and irradiance is the right model for what was attacked, unlike cooling-tower plumes. The output is a band, not a point estimate, to be calibrated on two months of real ENTSO-E data with the error shown on screen.
+- **Honest and auditable.** There's no trained model: just a power curve and a six-row rule table. It's read-only, out of band and uses only public data. The team's own hard rules pre-empt half the jury's questions: "replay on real data, never real time", "never claim satellites saw the CHP stop", "no number before the backtest".
+- **Out of the convergence trap.** Dropping the timing tripwire leaves behind both the 9-source ChronoShield cluster and the 2024 spoofing podium. No AI leg uses weather physics as a witness for blinded farms.
+- **Cheap to build, and the code exists.** The data and keys are free. Two official contest resources (JRC-PPDB-OPEN, ESA APEx) do real jobs, and the small deterministic engine passes its self-test.
+- **Two genuinely good ideas inside.**
+  - Replaying a non-cyber mass trip (Rogowiec 2021, ~3.3 GW) as a false-alarm control is exactly what a cyber jury respects.
+  - "How much of this region could you still see if every RTU went dark?" is a planning number nobody publishes, and it gives a real C2/CER angle.
+
+**Minuses and limitations**
+- **The DSO can probably already see it.** Larger farms usually connect through a dedicated line or bay at a DSO substation, where the DSO measures the flow itself, independently of the farm's RTU.
+  - If that held on 29 December, "is the farm still producing?" had a ground answer in seconds. The satellites would only add a slower, noisier copy. That's the same wall that sank the old version, one voltage level down.
+  - Small PV on shared feeders may be the exception, but it produces almost nothing in a December snowstorm.
+  - The pitch rests on the line "the operator could not see that", and that is the team's inference, not a CERT finding.
+- **CERT says it didn't matter.** Production was unaffected, and losing all 30 farms would not have affected grid stability. On the one real day the demo replays, `BLIND` changes no decision. What the DSO actually lost was remote control, and this doesn't give it back.
+- **Physics says "should", not "is".** The band shows what the weather allows; only a meter shows what the farm actually does.
+  - `BLIND: asset likely still running` is a prior, not evidence. An attacker who stops the turbines, as happened at the CHP, gets the same verdict.
+  - "ENTSO-E confirms it" happens at national level. There, 30 farms are a small slice of ~12 GW of wind, so losing them would probably stay inside the band.
+- **Thin space content, and thinner live.**
+  - CAMS irradiance is genuinely satellite-derived.
+  - ERA5 is a reanalysis on a ~30 km grid, not an observation.
+  - Sentinel-2 appears once, to build a register with someone else's algorithm.
+  - Galileo is a timestamp. IGiK and Blue Dot will ask where the Earth observation is.
+
+  ERA5 lags ~5 days and CAMS ~2, so the demo is replay only. Live use needs ECMWF open forecasts and EUMETSAT MTG nowcasts, neither of which is formally Copernicus. The roadmap's "Copernicus clouds in minutes" is really MTG.
+- **Single-farm bands will be wide and uncalibrated.**
+  - There are no per-farm actuals to fit: ENTSO-E has national totals and large units only.
+  - Capacities come from APEx footprint area or a "typical rating".
+  - With a wide band, `SUSPECT_TELEMETRY` rarely fires. An attacker who freezes the last good value stays inside it. Because the weather is public, "only if they know the weather model" is no defence.
+- **The register gap is the team's gap, not the DSO's.** Every farm on a DSO's network holds that DSO's connection conditions, so APEx finding "unregistered" farms impresses only an outsider. It also scales badly:
+  - the wind detector is proprietary-licensed and takes ~30 min per 220 km², about 700 processing hours for Poland;
+  - the PV mapper is validated only up to 20×20 km.
+- **The buyer has better data and no fine yet.**
+  - DSOs and PSE already forecast wind and PV from weather and meter it.
+  - OT security vendors could add a weather check as a feature.
+  - KSC penalties start only on 3 Apr 2028 (the doc admits this).
+  - Pricing is a hypothesis.
+  - There's still no practitioner, the one thing past winners demonstrably had.
+- **Neither the hook nor the closing slide is exclusive.**
+  - S1's CER-Triage already pitches the same 30+ blinded farms, using Sentinel-1 coherence and ERA5 snow filters. A shared demo case draws no source-count penalty (Kłodzko didn't either), but expect a rival with the same CERT slide.
+  - "OSNMA-stamped incident record + pre-filled KSC early warning" is the signature slide of #6, the most converged idea in the pool.
+
+**Known problems**
+- **Galileo sits in the wrong place in the chain.** OSNMA authenticates the time your receiver hears, not the time your log claims.
+  - Anyone holding the log can edit an entry, recompute the later hashes and still pass `verify()`. The self-test only catches a tamperer who doesn't recompute.
+  - An evidence log needs a third party attesting "this hash existed by time T". An RFC 3161 or eIDAS-qualified timestamp on the latest hash does that cheaply, and it has legal standing.
+  - OSNMA only protects your own receiver's clock from forged Galileo data. December never involved that threat.
+
+  The doc itself calls this the same primitive as Proof of Place's seal, hence the same −0.3. ChipCraft will ask exactly this.
+- **The replay can't produce the log the doc shows.** An OSNMA stamp certifies when the replay ran (November 2026), not 29 December 2025. Section 7.3's sample entry (`2025-12-29T07:15:02Z`, `AUTHENTICATED`) therefore can't exist. Today `time_source()` returns the unauthenticated system clock.
+- **The no-cry-wolf replay cries wolf as coded.** Ten Bełchatów units tripping together give ten `NON_WEATHER_TRIP`s, and `regional_escalation()` (threshold 3) returns `COORDINATED_EVENT`. A cascade from one fault looks exactly like coordination. Add a common-cause rule before showing Rogowiec.
+- **The CHP half is scripted, and its evidence claim is hollow.**
+  - There's no physics band for a heat-led CHP and no telemetry.
+  - `NON_WEATHER_TRIP` can't tell a contractor's mistake from an attack, and that was the actual misdiagnosis.
+  - With no path into the plant, the log never sees PLC commands. So "evidence survival 100% vs 0%" compares the tool's own thin observations with the attacker's trail.
+  - Comms-loss times are already logged by the DSO's SCADA master, outside the farm, and ERA5 can be recomputed at any time.
+- **The 12:00 fallback is the weakest case.** "PV only" on 29 December means:
+  - a ~15° noon sun and about 8 hours of daylight;
+  - snowstorms and probably snow-covered panels;
+  - a model that uses irradiance only, with no snow or temperature term.
+
+  Expect `BLIND_LOW_CONFIDENCE` everywhere.
+- **No real number exists yet.**
+  - The backtest has run only on synthetic files.
+  - As written, it averages wind over a box that also covers the Baltic, Kaliningrad and slices of neighbouring countries.
+  - The attacked farms aren't public, so the per-farm "replay" is real weather plus simulated telemetry loss on farms not known to have been attacked. Say so on the slide.
+- **Two of the five resilience metrics are true by construction.** Evidence survival is 100% "by design", and observability is close to 100% for anything already in the register. The score mostly measures the tool, not the grid.
+
+**What changed vs the old version.** Almost everything the old #25 was marked down for is fixed:
+- the cooling-plume and Stuxnet-at-Bełchatów premise;
+- the 1 km Sentinel-3 heat pixels;
+- the simulated attack;
+- the "AI platform" read;
+- the timing half that duplicated #6, next to the 2024 spoofing podium.
+
+The old −0.5 goes with it, replaced by −0.3 for the OSNMA stamp. Relevance and execution rose sharply: a real attack, the right physics, official resources and working code.
+
+Innovation and business barely moved, because the premise problem only moved one voltage level down. The old version lost to PSE's metering; this one probably loses to the DSO's substation meters, plus CERT's own word that the farms didn't matter for stability.
+
+Base 3.4 → 5.0, final 2.9 → 4.7, rank 25th → 8th. It is level with BridgePass on score but behind it on the tie-break: "it can only say check" survives the jury's first hard question better than "the DSO's meter already says so".
+
+**Bottom line:** now second only to the converged #6 among Challenge 1 ideas, but it still witnesses something the operator can probably read off its own substation meters. At 11:30, ask one DSO engineer whether they could see those farms' output at their own substations on 29 December:
+- **A quotable "no"** lifts it to about 5.2, level with #5.
+- **A "yes"** drops it to about 4.2. The value case should then move to the roadmap's inverter kill-switch scenario, where small PV really has no real-time telemetry.
+
+Either way, anchor the log with an RFC 3161 timestamp and keep Galileo as the clock.
+
+---
+
+### 9. GhostStack: Sentinel-5P emitters vs registries
 **Challenge 3 · GLM · 4.5 (base 4.5, no penalty)**
 
 **What it is.** GhostStack averages months of Sentinel-5P air-pollution data to locate industrial emission sources. It then compares them with emission registers, permits and sanctions lists. It flags sites that emit like industry but don't officially exist, and sanctioned sites that keep running, and outputs enforcement dossiers.
@@ -359,7 +465,7 @@ A "claim-check" mode lets fact-checkers test viral footage that was never sealed
 
 ---
 
-### 9. GhostWorks: satellite audit of EU-funded works
+### 10. GhostWorks: satellite audit of EU-funded works
 **Challenge 3 · DeepSeek · 4.4 (base 4.4, no penalty)**
 
 **What it is.** GhostWorks takes public lists of EU-funded construction projects (cohesion funds, recovery funds/KPO) with declared locations and milestones. It checks Sentinel-1/2 time series to see whether anything was actually built, and ranks anomalies into case files for EPPO, OLAF and NIK.
@@ -382,7 +488,7 @@ A "claim-check" mode lets fact-checkers test viral footage that was never sealed
 
 ---
 
-### 10. Rail manifest reconciliation (TorGuard / RailManifest)
+### 11. Rail manifest reconciliation (TorGuard / RailManifest)
 **Challenge 3 · Qwen, Muse · 4.3 (base 4.8, −0.5)**
 
 **What it is.** It watches the rail yards at the Belarus/Ukraine gauge-change terminals (for example Małaszewicze) with Sentinel-1, estimating how many trains are present and for how long. It compares that with customs manifests, and mismatches become inspection-hold tickets for customs (KAS/OLAF).
@@ -406,7 +512,7 @@ A "claim-check" mode lets fact-checkers test viral footage that was never sealed
 
 ---
 
-### 11. VeriTerra: physics checks for faked satellite images
+### 12. VeriTerra: physics checks for faked satellite images
 **Challenge 1 · DeepSeek · 4.2 (base 4.2, no penalty)**
 
 **What it is.** VeriTerra is an intake filter that scores satellite images for tampering or AI fabrication. It checks:
@@ -427,13 +533,13 @@ It also hashes and signs genuine Copernicus products at download.
 - **Poor buyers:** OSINT desks and newsrooms have little money, and insurers rarely receive satellite images as evidence.
 
 **Known problems**
-- **Hashing at download proves very little.** It shows only that you got what CDSE served, which overlaps with #17.
+- **Hashing at download proves very little.** It shows only that you got what CDSE served, which overlaps with #18.
 
 **Bottom line:** the right question at the wrong resolution.
 
 ---
 
-### 12. Levee InSAR → work orders (WałWatch / GruntWatch)
+### 13. Levee InSAR → work orders (WałWatch / GruntWatch)
 **Challenge 2 · GLM, Qwen (Neon partly) · 4.1 (base 5.1, −0.5 convergence, −0.5 past-winner adjacency)**
 
 **What it is.** It uses Sentinel-1 interferometry (millimetre ground movement) and coherence along flood embankments and dams to rank segments by risk. It pushes inspection work orders into the operator's maintenance system (Wody Polskie) before the next flood.
@@ -457,7 +563,7 @@ It also hashes and signs genuine Copernicus products at download.
 
 ---
 
-### 13. Illegal-waste inspection triage (EcoForensic, WasteTriage, DIWASS Crosscheck, WasteDocket)
+### 14. Illegal-waste inspection triage (EcoForensic, WasteTriage, DIWASS Crosscheck, WasteDocket)
 **Challenge 3 · Neon, S1, Kimi, GPT, with the same core in Qwen and Muse (6 sources) · 4.0 (base 6.0, −2.0)**
 
 **What it is.** It combines Sentinel-1/2 time series over industrial plots, quarries and permitted waste sites with Poland's waste registry (BDO) or the EU's waste-shipment records (DIWASS). It flags sites where physical activity doesn't match the paperwork and produces inspection packets for the environmental inspectorates (GIOŚ/WIOŚ).
@@ -482,7 +588,7 @@ It also hashes and signs genuine Copernicus products at download.
 
 ---
 
-### 14. IntakeGuard: drinking-water intake closure
+### 15. IntakeGuard: drinking-water intake closure
 **Challenge 2 · DeepSeek, Muse (same name, independently) · 3.9 (base 4.4, −0.5)**
 
 **What it is.** It predicts when a flood-driven turbidity or pollution plume will reach a drinking-water intake. It combines Sentinel-1 flood extent, Sentinel-2/3 water-colour proxies and a simple river travel-time model, then issues a "close the intake at hour X" decision pack with a draft public notice.
@@ -503,7 +609,7 @@ It also hashes and signs genuine Copernicus products at download.
 
 ---
 
-### 15. Parametric flood triggers (Parametra / AccessSure)
+### 16. Parametric flood triggers (Parametra / AccessSure)
 **Challenge 2 · GLM, Kimi · 3.8 (base 4.8, −0.5 convergence, −0.5 past-winner adjacency)**
 
 **What it is.** It turns Sentinel-1 flood detection (and Sentinel-3 fire data) into signed, replayable payout triggers for insurers, anticipatory-aid funds and municipalities. Kimi's variant pays out when a specific access road goes under water.
@@ -523,7 +629,7 @@ It also hashes and signs genuine Copernicus products at download.
 
 ---
 
-### 16. CorridorGuard (+ CER-Triage): linear-infrastructure sabotage triage
+### 17. CorridorGuard (+ CER-Triage): linear-infrastructure sabotage triage
 **Challenge 2 · Neon, S1 (CER variant; S1 rejects the unpivoted version) · 3.7 (base 4.5, −0.3 convergence, −0.5 change-detection template)**
 
 **What it is.** It watches buffers along pipelines, railways, power lines and levees with Sentinel-1/2 for unauthorised digging, heavy machinery, leaks or subsidence. It suppresses farming and permitted works, then pushes tickets plus drone or high-resolution tasking boxes. CER-Triage applies the same idea to wind and solar sites whose SCADA was knocked out.
@@ -542,7 +648,7 @@ It also hashes and signs genuine Copernicus products at download.
 
 ---
 
-### 17. EO provenance gate (SentinelGate / OrbitReceipt)
+### 18. EO provenance gate (SentinelGate / OrbitReceipt)
 **Challenge 1 · Kimi, GPT · 3.6 (base 4.1, −0.5)**
 
 **What it is.** Middleware that checks Copernicus-derived products before they enter an operator's automated workflow: right scene, right area, not stale, approved processing, signed provenance. Anything that fails is quarantined and ticketed.
@@ -559,7 +665,7 @@ It also hashes and signs genuine Copernicus products at download.
 
 ---
 
-### 18. GridWade: flood-to-grid switching playbook
+### 19. GridWade: flood-to-grid switching playbook
 **Challenge 2 · DeepSeek · 3.6 (base 4.1, −0.5 flood template)**
 
 **What it is.** It converts a Sentinel-1 flood map plus flood forecasts into a substation-level switching playbook and outage forecast for electricity distributors, delivered as tickets.
@@ -576,7 +682,7 @@ It also hashes and signs genuine Copernicus products at download.
 
 ---
 
-### 19. CrisisVerif: AI triage of crisis posts against Copernicus
+### 20. CrisisVerif: AI triage of crisis posts against Copernicus
 **Challenge 2 · S1 · 3.5 (base 3.5, no penalty)**
 
 **What it is.** It triages social-media posts and citizen reports during a crisis. A new type of AI "decision model" classifies each post (dam breach, rumour, psyop). Hard checks against Copernicus EMS flood outlines, Sentinel-1 and OSNMA-stamped responder reports override the AI when the space data contradicts the post.
@@ -595,7 +701,7 @@ It also hashes and signs genuine Copernicus products at download.
 
 ---
 
-### 20. Veritrace: court-ready evidence chain for waste crime
+### 21. Veritrace: court-ready evidence chain for waste crime
 **Challenge 3 · Qwen · 3.5 (base 4.3, −0.5 waste-domain convergence, −0.3 OSNMA-photo template)**
 
 **What it is.** It reconciles waste-transport registries (SENT/BDO) with Copernicus observations of disposal sites. It then packages the findings with C2PA credentials, an eIDAS qualified timestamp, a blockchain anchor and OSNMA-stamped inspector photos into a "court-admissible" bundle.
@@ -613,7 +719,7 @@ It also hashes and signs genuine Copernicus products at download.
 
 ---
 
-### 21. ReCell: mobile-network restoration dispatch
+### 22. ReCell: mobile-network restoration dispatch
 **Challenge 2 · Kimi · 3.5 (base 4.0, −0.5 flood template)**
 
 **What it is.** It optimises where mobile operators send portable cell towers, generators and crews after a flood, using Sentinel-1 flood evidence, outage data, roads and population.
@@ -629,7 +735,7 @@ It also hashes and signs genuine Copernicus products at download.
 
 ---
 
-### 22. PumpSlot: flood-pump mutual-aid dispatch
+### 23. PumpSlot: flood-pump mutual-aid dispatch
 **Challenge 2 · GPT · 3.4 (base 3.9, −0.5 flood template)**
 
 **What it is.** It assigns scarce mobile flood pumps, crews and routes using a Copernicus EMS flood outline, field reports and a small constraint solver. In the demo, a road closure changes the dispatch.
@@ -646,7 +752,7 @@ It also hashes and signs genuine Copernicus products at download.
 
 ---
 
-### 23. PlotProof: EUDR deforestation audit API
+### 24. PlotProof: EUDR deforestation audit API
 **Challenge 3 · GLM · 3.3 (base 3.3, no penalty)**
 
 **What it is.** Importers upload supplier plot coordinates. The service checks each plot's Sentinel-2 history against the regulation's 2020 cutoff and returns a signed verdict plus the payload for the EU due-diligence statement.
@@ -666,7 +772,7 @@ It also hashes and signs genuine Copernicus products at download.
 
 ---
 
-### 24. AirShift: crew rescheduling during smoke episodes
+### 25. AirShift: crew rescheduling during smoke episodes
 **Challenge 2 · GPT · 3.0 (base 3.0, no penalty)**
 
 **What it is.** It reschedules outdoor municipal crews' tasks during smoke or smog episodes using CAMS air-quality forecasts and station data, and outputs a set of work-order changes.
@@ -681,24 +787,6 @@ It also hashes and signs genuine Copernicus products at download.
 - **Routine, not crisis.** Polish smog is mostly winter home heating.
 
 **Bottom line:** a productivity feature, not resilience.
-
----
-
-### 25. Power-plant cyber-physical check
-**Challenge 1 · Plant strategy (its timing half duplicates #6) · 2.9 (base 3.4, −0.5)**
-
-**What it is.** It pairs OSNMA timing checks with Copernicus observation of a power plant's physical state (cooling-tower plumes, river heat discharge) to catch falsified SCADA readings, and auto-drafts NIS2/KSC reports.
-
-**Pluses**
-- **The two-timescale framing is honest:** timing checks in real time, satellites over days. The data-diode deployment answer is good.
-
-**Minuses and limitations**
-- **The premise fails.** If a 1 GW unit trips, the grid operator (PSE) sees it within seconds through independent metering, grid frequency and market settlement, and the shift crew can see the cooling towers. Satellites passing every few days through November cloud add nothing.
-- **Stuxnet-style attacks are invisible from orbit.** They damage equipment while output looks normal.
-- **Too coarse for river heat.** Sentinel-3's 1 km heat pixels can't reliably resolve a discharge plume on the Vistula.
-- **The timing half is the most converged idea in the pool.**
-
-**Bottom line:** slower and coarser than phoning the shift supervisor.
 
 ---
 
